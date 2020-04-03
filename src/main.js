@@ -15,7 +15,7 @@ bot.on('message', function(event) {
   if (start !== -1 && end !== -1) {
     const sKey = text.slice(start + 22 , end);
     helpFriend(sKey);
-    event.reply('園丁已經幫你澆水五次囉~').then(function (data) {
+    event.reply('園丁已經幫你澆水五次囉😉').then(function (data) {
     }).catch(function (error) {
     });
   }
