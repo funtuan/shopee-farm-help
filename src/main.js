@@ -15,7 +15,7 @@ bot.on('message', function(event) {
   if (start !== -1 && end !== -1) {
     const sKey = text.slice(start + 22 , end);
     helpFriend(sKey);
-    event.reply('園丁已經幫你澆水五次囉😉').then(function (data) {
+    event.reply('園丁出發幫你澆水五次囉😉').then(function (data) {
     }).catch(function (error) {
     });
   }
@@ -23,16 +23,18 @@ bot.on('message', function(event) {
 
 function helpFriend(sKey, count=5) {
   for (let index = 0; index < count; index++) {
-    axios.post('https://games.shopee.tw/farm/api/friend/anonymous/help', {
-      shareKey: sKey,
-      schannel: 'LINE',
-    })
-    .then(function (response) {
-      console.log(response.data);
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
+    setTimeout(() => {
+      axios.post('https://games.shopee.tw/farm/api/friend/anonymous/help', {
+        shareKey: sKey,
+        schannel: 'LINE',
+      })
+      .then(function (response) {
+        console.log(response.data);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+    }, index * 1000);
   }
 }
 
